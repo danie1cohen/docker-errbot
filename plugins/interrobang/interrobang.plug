@@ -1,0 +1,11 @@
+[Core]
+module = interrobang
+name = Interrobang
+
+[Documentation]
+description = Handles comments like "!!!!!!!!!!!!!!" well
+
+[Python]
+version = 3
+
+[Errbot]

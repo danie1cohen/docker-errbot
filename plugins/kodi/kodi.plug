@@ -1,0 +1,11 @@
+[Core]
+name = Kodi
+module = kodi
+
+[Documentation]
+description = Interact with a networked XBMC or Kodi installation via errbot.
+
+[Python]
+version = 3
+
+[Errbot]

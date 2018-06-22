@@ -1,0 +1,11 @@
+[Core]
+name = hass
+module = hass
+
+[Documentation]
+description = Interact with your Home Assistant installation via Errbot
+
+[Python]
+version = 3
+
+[Errbot]
