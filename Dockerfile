@@ -10,7 +10,7 @@
 #    \  \::/       \  \:\        \  \:\
 #     \__\/         \__\/         \__\/
 #
-FROM python:3.6
+FROM arm64v8/python:3.6
 RUN python --version
 
 RUN mkdir -p /errbot /plugins /data /log
