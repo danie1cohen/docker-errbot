@@ -10,7 +10,18 @@
 #    \  \::/       \  \:\        \  \:\
 #     \__\/         \__\/         \__\/
 #
-FROM arm32v7/python:3.6
+FROM resin/rpi-raspbian:latest
+
+RUN apt-get -q update && apt-get -qy install \
+  build-essential \
+  libffi-dev \
+  libssl-dev \
+  python3-pip \
+  python3-dev
+
+RUN ln -s $(which python3) /usr/local/bin/python
+RUN ln -s $(which pip3) /usr/local/bin/pip
+
 RUN python --version
 
 RUN mkdir -p /errbot /plugins /data /log
