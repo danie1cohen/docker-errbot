@@ -2,4 +2,4 @@ language: python
 python:
 - '3.6'
 
-script: find ./plugins -type d -exec cd {} && py.test \;
+script: find $TRAVIS_BUILD_DIR/plugins/* -type d | grep -v __pycache__ | xargs py.test
