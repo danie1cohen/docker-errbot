@@ -1,5 +1,6 @@
 errbot==5.1.2
 homeassistant==0.45.0
+markdown==2.6.11
 raven==6.1.0
 slackclient==1.0.2
 xbmc-json==0.3.2
