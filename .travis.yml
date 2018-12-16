@@ -5,7 +5,7 @@ services:
 - docker
 env:
   gobal:
-  - REPO=$DOCKER_USER/errbot
+  - REPO=danie1cohen/errbot
 
 script: find $TRAVIS_BUILD_DIR/plugins/* -type d | grep -v __pycache__ | xargs py.test
 
