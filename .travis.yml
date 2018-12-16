@@ -1,5 +1,21 @@
 language: python
 python:
 - '3.6'
+services:
+- docker
+env:
+  gobal:
+  - REPO=$DOCKER_USER/errbot
 
 script: find $TRAVIS_BUILD_DIR/plugins/* -type d | grep -v __pycache__ | xargs py.test
+
+before_deploy:
+- docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+- docker build $TRAVIS_BUILD_DIR -t $REPO
+- docker tag $REPO:latest
+
+deploy:
+  provider: script
+  script: docker push $REPO
+  on:
+    branch: master
