@@ -9,9 +9,10 @@ env:
 
 script:
 - find $TRAVIS_BUILD_DIR/plugins/* -type d | grep -v __pycache__ | xargs py.test
+# make the build use qemu so arm
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
-- docker build . -t $REPO
-- docker $REPO errbot --version
+- docker pull $REPO && docker build . -t $REPO --cache-from $REPO || docker build . -t $REPO >/dev/null
+- docker run $REPO errbot --version
 
 before_deploy:
 - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
