@@ -1,20 +1,20 @@
 language: python
 python:
 - '3'
-
-os: osx
 services:
 - docker
-
 env:
   global:
   - REPO=danie1cohen/errbot
 
-script: find $TRAVIS_BUILD_DIR/plugins/* -type d | grep -v __pycache__ | xargs py.test
+script:
+- find $TRAVIS_BUILD_DIR/plugins/* -type d | grep -v __pycache__ | xargs py.test
+- docker run --rm --privileged multiarch/qemu-user-static:register --reset
+- docker build . -t $REPO
+- docker $REPO errbot --version
 
 before_deploy:
 - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-- docker build $TRAVIS_BUILD_DIR -t $REPO
 - docker tag $REPO:latest
 
 deploy:
