@@ -1,5 +1,5 @@
 errbot==5.1.2
-homeassistant==0.45.0
+homeassistant==2023.9.0
 markdown==2.6.11
 nose
 pytest-pep8
